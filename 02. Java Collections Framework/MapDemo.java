@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.Spliterator;
 
 /**
    This program demonstrates a map that maps names to colors.
@@ -31,5 +32,10 @@ public class MapDemo
          Color value = favoriteColors.get(key);
          System.out.println(key + " : " + value);
       }
+
+      Spliterator<String> splitter = keySet.spliterator();
+      System.out.println("List of names is: ");
+
+      splitter.forEachRemaining(System.out::println);
    }
 }

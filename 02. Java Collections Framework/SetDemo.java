@@ -24,10 +24,18 @@ public class SetDemo {
             // Do something with name
             System.out.println(name);
         }
+
         if (names.contains("Tom2"))
-        System.out.println("Tom2 in the list");//expect this
-    else
-        System.out.println("Tom2 not in the list");
+            System.out.println("Tom2 in the list");//expect this
+        else
+            System.out.println("Tom2 not in the list");
+
+        Object[] nameArray = names.toArray(); //Create array with same elements in Set
+        System.out.println("nameArray has " + nameArray.length + " elements");
+
+        for (Object str: nameArray){
+            System.out.println(str);
+        }
 
     }
 }
