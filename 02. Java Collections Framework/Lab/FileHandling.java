@@ -1,28 +1,29 @@
+package Lab;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class FileHandling {
     public static void main(String[] args) {
-        String fileName = "/workspace/MTUSep24DSC/02. Java Collections Framework/Lab/hamlet.txt";
+        String fileName = "02. Java Collections Framework/Lab/hamlet.txt";
 
-        try {
-            Scanner in = new Scanner(new File(fileName));
+        try (Scanner in = new Scanner(new File(fileName))) {  // Use try-with-resources
             int lineNumber = 1;
             while (in.hasNextLine()) {
-                Scanner lineParser = new Scanner(in.nextLine());
-                // Use any characters other than a-z, A-Z, 0-9 as delimiters
+                String line = in.nextLine();
+                Scanner lineParser = new Scanner(line);
                 lineParser.useDelimiter("[^A-Za-z0-9]+");
                 while (lineParser.hasNext()) {
                     String word = lineParser.next();
-                    System.out.println("''"+ word + lineNumber);
+
+                    System.out.println("''" + word + lineNumber);
                 }
-                in.close(); 
+                lineNumber++;
                 lineParser.close();
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 }
