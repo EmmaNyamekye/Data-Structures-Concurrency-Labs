@@ -6,6 +6,19 @@ import java.util.*;
 
 public class SpellCheckLinkedList {
 
+    public static void main(String[] args) throws FileNotFoundException {
+        Collection<String> dictionaryOfWords = readDictionary("MyLabs/C_A_1/words_alpha.txt");
+        Set<String> document = readWords("MyLabs/C_A_1/The-Little-Prince.txt");
+        int numMisspelledWords = 0;
+
+        for (String word : document) {
+            if(!dictionaryOfWords.contains(word)) {
+                numMisspelledWords++;
+            }
+        }
+        System.out.println("Number of misspelled words: " + numMisspelledWords);
+    }
+
     private static Collection<String> readDictionary(String filename) throws FileNotFoundException {
         Scanner inScan = new Scanner(new File(filename));
 
@@ -28,21 +41,5 @@ public class SpellCheckLinkedList {
         }
         inScan.close();
         return words;
-    }
-
-    public static void main(String[] args) throws FileNotFoundException {
-        Collection<String> dictionaryOfWords = readDictionary("MyLabs/C_A_1/words_alpha.txt");
-
-        Set<String> document = readWords("MyLabs/C_A_1/The-Little-Prince.txt");
-
-        int numMisspelledWords = 0;
-
-        for (String word : document) {
-            if(!dictionaryOfWords.contains(word)) {
-                numMisspelledWords++;
-            }
-        }
-
-        System.out.println("Number of misspelled words: " + numMisspelledWords);
     }
 }
