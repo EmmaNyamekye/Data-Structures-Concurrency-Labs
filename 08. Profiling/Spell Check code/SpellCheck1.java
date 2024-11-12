@@ -7,15 +7,15 @@
  *	Availability: Instructor Companion Site (online) to Big Java: Late Objects, 1st Edition (Wiley) (Accessed 9th October 2023)
  *	Modified:
  *       Collection used instead of Set for dictionaryWords to allow us experiment with different collections.
-  *****************************************************/
+ *****************************************************/
 
 import java.util.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 
 /**
-   This program checks which words in a file are not present in a dictionary.
-*/
+ This program checks which words in a file are not present in a dictionary.
+ */
 public class SpellCheck1 {
    public static void main(String[] args)
            throws FileNotFoundException {

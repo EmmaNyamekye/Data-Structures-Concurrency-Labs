@@ -1,14 +1,14 @@
-package C_A_1;
+package T00229159_CA1;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-public class SpellCheckLinkedList {
+public class SpellCheckTreeSet {
 
     public static void main(String[] args) throws FileNotFoundException {
-        Collection<String> dictionaryOfWords = readDictionary("MyLabs/C_A_1/words_alpha.txt");
-        Set<String> document = readWords("MyLabs/C_A_1/The-Little-Prince.txt");
+        Collection<String> dictionaryOfWords = readDictionary("MyLabs/T00229159_CA1/words_alpha.txt");
+        Set<String> document = readWords("MyLabs/T00229159_CA1/The-Little-Prince.txt");
         int numMisspelledWords = 0;
 
         for (String word : document) {
@@ -23,7 +23,7 @@ public class SpellCheckLinkedList {
         Scanner inScan = new Scanner(new File(filename));
 
         inScan.useDelimiter("[^a-zA-Z]+");
-        Collection<String> words = new LinkedList<String>();
+        Collection<String> words = new TreeSet<String>();
         while (inScan.hasNext()) {
             words.add(inScan.next().toLowerCase());
         }
